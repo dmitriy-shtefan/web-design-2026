@@ -312,7 +312,7 @@ function downloadHtml() {
 
 function bindEvents() {
   document.querySelectorAll('[data-step]').forEach((button) => button.addEventListener('click', () => goToStep(Number(button.dataset.step))));
-  document.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => { state.mobileView = button.dataset.view; render(); }));
+  document.querySelectorAll('.view-tab[data-view]').forEach((button) => button.addEventListener('click', () => { state.mobileView = button.dataset.view; render(); }));
   document.querySelector('#code-editor')?.addEventListener('input', (event) => updateLiveCode(event.target.value));
   document.querySelector('#reset-code')?.addEventListener('click', () => { state.codes[state.currentStep] = lessonSteps[state.currentStep].starter; state.feedback = ''; saveProgress(); render(); });
   document.querySelectorAll('[data-tag]').forEach((button) => button.addEventListener('click', () => {
